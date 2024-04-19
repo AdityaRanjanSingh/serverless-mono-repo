@@ -1,0 +1,9 @@
+# serverless-compose.yml
+services:
+  aws-node-http-api-project:
+    path: services/aws-node-http-api-project
+
+  service-b:
+    path: service-b
+    # If the file is not named "serverless.yml":
+    # config: serverless.api.yml
