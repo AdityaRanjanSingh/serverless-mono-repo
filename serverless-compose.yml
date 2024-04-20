@@ -5,5 +5,7 @@ services:
 
   aws-node-scheduled-cron-project:
     path: services/aws-node-scheduled-cron-project
-    # If the file is not named "serverless.yml":
-    # config: serverless.api.yml
+
+# All client applications after this line
+  simple-vue-app:
+    path: clients/simple-vue-app

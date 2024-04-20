@@ -1,26 +1,16 @@
-service: aws-node-http-api-project
+service: simple-vue-app
 frameworkVersion: '3'
 
 custom:
   region: '${file(../../env.yml):${opt:stage}.region}'
-  shared_tags: '${file(../../env.yml):${opt:stage}.tags}'
-  runtime: nodejs18.x
 
 provider:
   name: aws
-  runtime: ${self:custom.runtime}
   region: ${self:custom.region}
+  # The S3 prefix under which deployed artifacts are stored (default: serverless)
   deploymentPrefix: serverless
   deploymentBucket:
     maxPreviousDeploymentArtifacts: 10
     blockPublicAccess: true
     skipPolicySetup: true
     versioning: true
-
-functions:
-  api:
-    handler: index.handler
-    events:
-      - httpApi:
-          path: /
-          method: get

@@ -1,9 +1,19 @@
 service: aws-node-scheduled-cron-project
 frameworkVersion: '3'
-
+custom:
+  region: '${file(../../env.yml):${opt:stage}.region}'
+  shared_tags: '${file(../../env.yml):${opt:stage}.tags}'
+  runtime: nodejs18.x
 provider:
   name: aws
+  region: ${self:custom.region}
   runtime: nodejs18.x
+  deploymentPrefix: serverless
+  deploymentBucket:
+    maxPreviousDeploymentArtifacts: 10
+    blockPublicAccess: true
+    skipPolicySetup: true
+    versioning: true
 
 functions:
   rateHandler:
