@@ -3,7 +3,7 @@ services:
   aws-node-http-api-project:
     path: services/aws-node-http-api-project
 
-  service-b:
-    path: service-b
+  aws-node-scheduled-cron-project:
+    path: services/aws-node-scheduled-cron-project
     # If the file is not named "serverless.yml":
     # config: serverless.api.yml
