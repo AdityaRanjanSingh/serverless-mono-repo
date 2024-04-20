@@ -1,9 +1,15 @@
 service: aws-node-http-api-project
 frameworkVersion: '3'
 
+custom:
+  region: '${file(../../env.yml)}:${opt:stage}:region'
+  shared_tags: '${file(../../env.yml)}:${opt:stage}:tags'
+  runtime: nodejs18.x
+
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: ${self:custom.runtime}
+  region: ${self:custom.region}
 
 functions:
   api:
